@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Campus Cafeteria food ordering and point-of-sale system"
+    />
+    <title>Campus Cafeteria POS</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="#products" aria-label="Campus Cafeteria POS home">
+        <span class="brand-mark" aria-hidden="true">CC</span>
+        <span>
+          <strong>Campus Cafeteria</strong>
+          <small>Food Ordering &amp; POS</small>
+        </span>
+      </a>
+      <div class="terminal-status" aria-label="Terminal status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="terminal-status-text">Cashier terminal ready</span>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">IT 415 · Scenario 1</p>
+          <h1 id="page-title">Good day, Cashier!</h1>
+          <p class="intro-copy">
+            Select products, review the order, then accept the customer's cash payment.
+          </p>
+        </div>
+        <div class="flow-legend" aria-label="Transaction flow">
+          <span class="active">1 · Order</span>
+          <span>2 · Pay</span>
+          <span>3 · Receipt</span>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <section class="catalog panel" id="products" aria-labelledby="products-title">
+          <div class="section-heading">
+            <div>
+              <p class="step-label">Step 1 · Browse products</p>
+              <h2 id="products-title">Cafeteria Menu</h2>
+            </div>
+            <span class="item-count">6 items</span>
+          </div>
+          <div class="product-grid" id="product-grid"></div>
+        </section>
+
+        <aside class="checkout panel" aria-labelledby="order-title">
+          <div class="section-heading">
+            <div>
+              <p class="step-label">Steps 2–5 · Review and pay</p>
+              <h2 id="order-title">Current Order</h2>
+            </div>
+            <span class="cart-badge" id="cart-count" aria-label="0 items in cart">0</span>
+          </div>
+
+          <div class="feedback" id="feedback" role="status" aria-live="polite">
+            Select an item to begin an order.
+          </div>
+
+          <div class="cart-list" id="cart-list" aria-live="polite"></div>
+
+          <div class="order-total" aria-label="Order total">
+            <span>Total amount</span>
+            <strong id="total-amount">₱0.00</strong>
+          </div>
+
+          <form class="payment-form" id="payment-form" novalidate>
+            <label for="payment-amount">Cash received</label>
+            <div class="money-input">
+              <span aria-hidden="true">₱</span>
+              <input
+                id="payment-amount"
+                name="paymentAmount"
+                type="number"
+                inputmode="decimal"
+                min="0"
+                step="0.01"
+                placeholder="0.00"
+                autocomplete="off"
+              />
+            </div>
+            <button class="primary-button" id="pay-button" type="submit">
+              Confirm cash payment
+            </button>
+          </form>
+        </aside>
+      </div>
+
+      <section class="receipt panel" id="receipt-section" aria-labelledby="receipt-title" hidden>
+        <div class="receipt-success" aria-hidden="true">✓</div>
+        <div class="receipt-copy">
+          <p class="step-label">Steps 6–7 · Payment confirmed</p>
+          <h2 id="receipt-title">Transaction Complete</h2>
+          <p>Your receipt is ready. Review it before starting the next order.</p>
+        </div>
+        <div class="receipt-paper" id="receipt-content"></div>
+        <button class="secondary-button" id="new-transaction-button" type="button">
+          Start new transaction
+        </button>
+      </section>
+    </main>
+
+    <footer>Campus Cafeteria POS · Cash transactions only</footer>
+  </body>
+</html>

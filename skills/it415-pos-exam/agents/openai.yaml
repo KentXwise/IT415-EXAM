@@ -1,0 +1,4 @@
+interface:
+  display_name: "IT415 POS Exam"
+  short_description: "Build and verify the four-stage POS exam project"
+  default_prompt: "Use $it415-pos-exam to guide my assigned POS project through the next four-stage prompt cycle."
